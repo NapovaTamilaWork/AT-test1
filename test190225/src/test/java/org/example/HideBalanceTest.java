@@ -28,13 +28,20 @@ public class HideBalanceTest {
 
     }
 
-    /*@Test
-    public void buttonEyeState() {
+    @Test
+    public void buttonEyeStateDefault() {
+        assertTrue(HideBalance.ButtonEyeState(driver, "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 kNwKE"));
     }
 
     @Test
     public void clickButtonEye() {
-    }*/
+        assertTrue(HideBalance.ClickButtonEye(driver));
+    }
+
+    @Test
+    public void buttonEyeStateClicked() {
+        assertTrue(HideBalance.ButtonEyeState(driver, "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dYPBdJ"));
+    }
 
     @AfterClass
     public static void ClosePage() {

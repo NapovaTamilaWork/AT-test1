@@ -17,24 +17,17 @@ public class loginIncomexTest extends TestCase {
     public static String password = "Password123";
 
 
-    @BeforeClass
-    public static void openPage() {
-        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome133\\chromedriver.exe");
-        driver = new ChromeDriver();
-    }
-
     @Test
     public void loginInc() {
-        assertTrue(loginIncomex.login(driver, login, password));
+        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome133\\chromedriver.exe");
+        driver = new ChromeDriver();
+        loginIncomex.login(driver, login, password);
     }
 
     @Test
     public void logout() {
         assertTrue(loginIncomex.logout(driver));
-    }
-
-    @AfterClass
-    public static void ClosePage() {
         driver.quit();
     }
+
 }

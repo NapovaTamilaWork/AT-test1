@@ -47,7 +47,7 @@ public class loginIncomex {
         WebElement logout = driver.findElement(By.xpath("//div[@data-at='at-header-balance-menu-item-label-logout']"));
         logout.click();
 
-        WebElement yes = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div[@data-at='at-dialogue-option-confirm-yes-button']")));
+        WebElement yes = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-dialogue-option-confirm-yes-button']")));
         yes.click();
 
         WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
