@@ -3,7 +3,10 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class loginIncomex {
@@ -31,7 +34,24 @@ public class loginIncomex {
         return PageLoadScreen.isDisplayed();
     }
 
-    public static void logout(){
+    public static boolean logout(WebDriver driver){
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // Ждём, пока загрузочный экран исчезнет
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-at='at-page-loader-container']")));
+        // Дожидаемся, пока кнопка станет кликабельной
+        WebElement moreMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-header-balance-menu-label-icon']")));
+
+        moreMenu.click();
+
+        WebElement logout = driver.findElement(By.xpath("//div[@data-at='at-header-balance-menu-item-label-logout']"));
+        logout.click();
+
+        WebElement yes = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div[@data-at='at-dialogue-option-confirm-yes-button']")));
+        yes.click();
+
+        WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
+
+        return PageLogin.isDisplayed();
     }
 }

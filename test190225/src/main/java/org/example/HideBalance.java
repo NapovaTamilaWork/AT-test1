@@ -20,6 +20,19 @@ public class HideBalance {
         return ButtonEye.isDisplayed();
     }
 
+    public static boolean ButtonEyeState(WebDriver driver, String duringClass){
+        //проверка на класс
+        //  BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 kNwKE      - not pressed
+        //  BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dYPBdJ      - pressed
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // Дожидаемся, пока кнопка станет кликабельной
+        WebElement ButtonEye = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-at='at-header-balance-icon']")));
+
+        return ButtonEye.getAttribute("class").equals(duringClass);
+
+    }
+
     public static boolean ClickButtonEye(WebDriver driver) {
 
         String expRes = "$******";
