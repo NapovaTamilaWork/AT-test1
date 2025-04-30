@@ -10,6 +10,43 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class loginIncomex {
+
+    public static void enterValidName(WebDriver driver, String login){
+        WebElement fieldLogin = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-login-input']"));
+
+        fieldLogin.click();
+        fieldLogin.sendKeys(login);
+    }
+
+    public static void enterValidPass(WebDriver driver, String password){
+        WebElement fieldLPassword = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-password-input']"));
+        fieldLPassword.sendKeys(password);
+    }
+
+    public static void clickLoginButt(WebDriver driver){
+        WebElement loginButton = driver.findElement(By.xpath("//button[@data-at='at-login-block-login-button']"));
+        loginButton.click();
+    }
+
+    public static void clickMoreMenuButt(WebDriver driver, WebDriverWait wait){
+        // Дожидаемся, пока кнопка станет кликабельной
+        WebElement moreMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-header-balance-menu-label-icon']")));
+
+        moreMenu.click();
+    }
+
+    public static void clickLogoutItem(WebDriver driver){
+        WebElement logout = driver.findElement(By.xpath("//div[@data-at='at-header-balance-menu-item-label-logout']"));
+        logout.click();
+    }
+
+    public static void clickYesOnLogoutWondow(WebDriver driver, WebDriverWait wait){
+        WebElement yes = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-dialogue-option-confirm-yes-button']")));
+        yes.click();
+    }
+
+
+
     public static boolean login(WebDriver driver, String login, String password) {
         driver.get("https://dev-trading.incomex.org/login.html");
         driver.manage().window().maximize();    //окно на весь єкран
@@ -18,16 +55,11 @@ public class loginIncomex {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 
-        WebElement fieldLogin = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-login-input']"));
+        enterValidName(driver, login);
 
-        fieldLogin.click();
-        fieldLogin.sendKeys(login);
+        enterValidPass(driver, password);
 
-        WebElement fieldLPassword = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-password-input']"));
-        fieldLPassword.sendKeys(password);
-
-        WebElement loginButton = driver.findElement(By.xpath("//button[@data-at='at-login-block-login-button']"));
-        loginButton.click();
+        clickLoginButt(driver);
 
         WebElement PageLoadScreen = driver.findElement(By.xpath("//div[@data-at='at-page-loader-container']"));
 
@@ -39,16 +71,12 @@ public class loginIncomex {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Ждём, пока загрузочный экран исчезнет
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-at='at-page-loader-container']")));
-        // Дожидаемся, пока кнопка станет кликабельной
-        WebElement moreMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-header-balance-menu-label-icon']")));
 
-        moreMenu.click();
+        clickMoreMenuButt(driver, wait);
 
-        WebElement logout = driver.findElement(By.xpath("//div[@data-at='at-header-balance-menu-item-label-logout']"));
-        logout.click();
+        clickLogoutItem(driver);
 
-        WebElement yes = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-dialogue-option-confirm-yes-button']")));
-        yes.click();
+        clickYesOnLogoutWondow(driver, wait);
 
         WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
 

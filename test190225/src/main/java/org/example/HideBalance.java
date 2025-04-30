@@ -35,7 +35,7 @@ public class HideBalance {
 
     public static boolean ClickButtonEye(WebDriver driver) {
 
-        String expRes = "$******";
+        String expRes = "$*********";
         String actRes = "";
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
