@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class HideBalance {
 
     public static boolean ButtonIsDisplayed(WebDriver driver){
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         WebElement ButtonEye = driver.findElement(By.xpath("//div[@data-at='at-header-balance-icon']"));
 

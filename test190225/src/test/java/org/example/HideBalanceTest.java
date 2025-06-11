@@ -18,6 +18,7 @@ public class HideBalanceTest {
     public static String password = "Password123";
 
 
+
     @BeforeClass
     public static void openPage() {
         driver = DriverManager.getDriver();     // забрали драйвер из класса

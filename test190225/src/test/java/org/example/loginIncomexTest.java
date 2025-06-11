@@ -1,6 +1,8 @@
 package org.example;
 import org.junit.*;
 
+
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,11 +16,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+import org.example.Constants;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   //для выполнения кейсов по алфавиту
 public class loginIncomexTest {
+
     public static WebDriver driver;
-    public static String login = "q29125@dunkos.xyz";
-    public static String password = "Password123";
+    public static String login = Constants.getUsername();
+    public static String password = Constants.getPassword();
 
     @BeforeClass
     public static void openPage() {

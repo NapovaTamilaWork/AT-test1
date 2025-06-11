@@ -48,12 +48,12 @@ public class loginIncomex {
 
 
     public static boolean login(WebDriver driver, String login, String password) {
-        driver.get("https://dev-trading.incomex.org/login.html");
+        driver.get(Constants.getUrl());
         driver.manage().window().maximize();    //окно на весь єкран
 
         // set the page load timeout to 15 seconds
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 
         enterValidName(driver, login);
 
