@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.DriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -19,8 +20,7 @@ public class HideBalanceTest {
 
     @BeforeClass
     public static void openPage() {
-        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome135\\chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();     // забрали драйвер из класса
         loginIncomex.login(driver, login, password);
     }
 

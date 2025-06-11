@@ -14,8 +14,7 @@ import static org.example.HideBalance.*;
 public class App 
 {
     public static void main( String[] args ) {
-        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome133\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = DriverManager.getDriver();            // забрали драйвер из класса
 
 
 

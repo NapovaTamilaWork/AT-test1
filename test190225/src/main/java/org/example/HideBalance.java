@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class HideBalance {
+
     public static boolean ButtonIsDisplayed(WebDriver driver){
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 

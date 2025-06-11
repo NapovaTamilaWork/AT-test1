@@ -22,8 +22,7 @@ public class loginIncomexTest {
 
     @BeforeClass
     public static void openPage() {
-        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome135\\chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();          // забрали драйвер из класса
     }
 
     @Test
