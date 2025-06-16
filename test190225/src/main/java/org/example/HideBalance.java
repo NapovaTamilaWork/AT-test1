@@ -21,6 +21,8 @@ public class HideBalance {
 
         WebElement ButtonEye = driver.findElement(By.xpath("//div[@data-at='at-header-balance-icon']"));
 
+        logger.info("Button Is Displayed : {}", ButtonEye.isDisplayed());
+
         return ButtonEye.isDisplayed();
     }
 
@@ -32,6 +34,8 @@ public class HideBalance {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Дожидаемся, пока кнопка станет кликабельной
         WebElement ButtonEye = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-at='at-header-balance-icon']")));
+
+        logger.info("Button Eye State : {}", duringClass);
 
         return ButtonEye.getAttribute("class").equals(duringClass);
 
@@ -55,6 +59,8 @@ public class HideBalance {
         // Дожидаемся появления баланса
         WebElement Balance = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-header-balance-value']")));
         actRes = Balance.getText();
+
+        logger.info("Click Button Eye");
 
         return expRes.equals(actRes);
     }
