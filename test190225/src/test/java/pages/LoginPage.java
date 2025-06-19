@@ -1,28 +1,38 @@
-package org.example;
+package pages;
 
+import org.example.Constants;
+import org.example.loginIncomex;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class loginIncomex {
+import java.time.Duration;
+
+public class LoginPage {
+
 
     private static final Logger logger = LoggerFactory.getLogger(loginIncomex.class);      //для логгирования
 
     //убираем передачу драйвера в каждую функцию
     private static WebDriver driver;
 
-    public loginIncomex(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
     // -------------
+
+    public static void openPlatform(){
+        driver.get(Constants.getUrl());
+        driver.manage().window().maximize();    //окно на весь єкран
+
+        // set the page load timeout to 15 seconds
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+    }
 
     public static void enterValidName(String login){
         WebElement fieldLogin = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-login-input']"));
@@ -73,13 +83,8 @@ public class loginIncomex {
 
 
     public static boolean login(String login, String password) {
-        driver.get(Constants.getUrl());
-        driver.manage().window().maximize();    //окно на весь єкран
 
-        // set the page load timeout to 15 seconds
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-
+        openPlatform();
 
         enterValidName(login);
 
@@ -92,7 +97,7 @@ public class loginIncomex {
         return PageLoadScreen.isDisplayed();
     }
 
-    public static boolean logout(){
+    public static boolean logout(WebDriver driver){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Ждём, пока загрузочный экран исчезнет
@@ -108,4 +113,6 @@ public class loginIncomex {
 
         return PageLogin.isDisplayed();
     }
+
+
 }

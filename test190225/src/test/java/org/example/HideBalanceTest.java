@@ -22,7 +22,7 @@ public class HideBalanceTest {
     @BeforeClass
     public static void openPage() {
         driver = DriverManager.getDriver();     // забрали драйвер из класса
-        loginIncomex.login(driver, login, password);
+        loginIncomex.login(login, password);
     }
 
 
@@ -49,7 +49,7 @@ public class HideBalanceTest {
 
     @AfterClass
     public static void ClosePage() {
-        loginIncomex.logout(driver);
+        loginIncomex.logout();
         driver.quit();
     }
 }

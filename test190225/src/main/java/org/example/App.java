@@ -18,17 +18,17 @@ public class App
 
 
 
-        System.out.println(login(driver, "q29125@dunkos.xyz", "Password123"));
+        //System.out.println(login("q29125@dunkos.xyz", "Password123"));
 
-        //System.out.println(ButtonIsDisplayed(driver));
+        //System.out.println(ButtonIsDisplayed());
 
-        //System.out.println(ButtonEyeState(driver, "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 kNwKE"));
+        //System.out.println(ButtonEyeState("BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 kNwKE"));
 
-        //System.out.println(ClickButtonEye(driver));
+        //System.out.println(ClickButtonEye());
 
-        //System.out.println(ButtonEyeState(driver, "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dYPBdJ"));
+        //System.out.println(ButtonEyeState("BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dYPBdJ"));
 
-        logout(driver);
+        //logout();
 
     }
 }

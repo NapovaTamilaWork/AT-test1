@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 import org.example.Constants;
+import pages.LoginPage;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   //для выполнения кейсов по алфавиту
 public class loginIncomexTest {
@@ -28,16 +29,17 @@ public class loginIncomexTest {
     @BeforeClass
     public static void openPage() {
         driver = DriverManager.getDriver();          // забрали драйвер из класса
+        new LoginPage(driver);
     }
 
     @Test
     public void test1_login() {
-        assertTrue(loginIncomex.login(driver, login, password));
+        assertTrue(loginIncomex.login(login, password));
     }
 
     @Test
     public void test2_logout() {
-        assertTrue(loginIncomex.logout(driver));
+        assertTrue(loginIncomex.logout());
     }
 
     @AfterClass
