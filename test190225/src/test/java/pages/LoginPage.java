@@ -97,7 +97,11 @@ public class LoginPage {
         logger.info("click Yes Button On Logout Window");
     }
 
+    public static void isDisplayLoginPage(){
+        WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
 
+        Assert.assertTrue(PageLogin.isDisplayed());
+    }
 
     public static void login(String login, String password) {
 
@@ -114,7 +118,7 @@ public class LoginPage {
         isDisplayHomePage();
     }
 
-    public static boolean logout(){
+    public static void logout(){
 
         clickMoreMenuButt();
 
@@ -122,9 +126,7 @@ public class LoginPage {
 
         clickYesOnLogoutWindow();
 
-        WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
-
-        return PageLogin.isDisplayed();
+        isDisplayLoginPage();
     }
 
 

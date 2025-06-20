@@ -15,10 +15,10 @@ import java.time.Duration;
 
 public class LoginStep {
 
-    /*@Given("^user is opened login page$")
-    public void user_is_opened_login_page() {
+    @Given("^user is opened login page$")
+    public void userIsOpenedLoginPage() {
         LoginPage.openPlatform();
-    }*/
+    }
 
     @When("^user enters valid username and password$")
     public void user_enters_valid_username_and_password() {
@@ -36,8 +36,33 @@ public class LoginStep {
         LoginPage.isDisplayHomePage();
     }
 
-    @Given("^user is opened login page$")
-    public void userIsOpenedLoginPage() {
+
+    @Given("^user is login to the platform$")
+    public void userIsLoginToThePlatform() {
         LoginPage.openPlatform();
+        LoginPage.enterValidName(Constants.getUsername());
+        LoginPage.enterValidPass(Constants.getPassword());
+        LoginPage.clickLoginButt();
+        LoginPage.isDisplayHomePage();
+    }
+
+    @When("^user click more menu button$")
+    public void userClickMoreMenuButton() {
+        LoginPage.clickMoreMenuButt();
+    }
+
+    @And("^user click logout item$")
+    public void userClickLogoutItem() {
+        LoginPage.clickLogoutItem();
+    }
+
+    @And("^user click Yes button$")
+    public void userClickYesButton() {
+        LoginPage.clickYesOnLogoutWindow();
+    }
+
+    @Then("^user see login form$")
+    public void userSeeLoginForm() {
+        LoginPage.isDisplayLoginPage();
     }
 }
