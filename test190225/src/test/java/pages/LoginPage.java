@@ -103,6 +103,13 @@ public class LoginPage {
         Assert.assertTrue(PageLogin.isDisplayed());
     }
 
+    public static void isDisplayError() {
+        WebElement Error;
+        Error = driver.findElement(By.xpath("//span[@data-at='at-login-block-error']"));
+
+        Assert.assertTrue(Error.isDisplayed());
+    }
+
     public static void login(String login, String password) {
 
         openPlatform();

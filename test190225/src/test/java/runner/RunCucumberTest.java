@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/",          // путь к фичам
-        glue = "src/test/step/",                             // где искать степы
+        glue = {"step"},                             // где искать степы
         plugin = {"pretty", "json:target/runner.json", "junit:target/junit.xml"},     // Отчёты
-        monochrome = true                                   // Чистый вывод в консоли
+        monochrome = true,                                   // Чистый вывод в консоли
+        tags = "@login"
 )
 
 public class RunCucumberTest {

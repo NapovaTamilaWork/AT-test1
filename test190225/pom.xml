@@ -12,6 +12,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <parallel.tags>
+      @login
+      <!-- @positive -->
+    </parallel.tags>
   </properties>
 
   <dependencies>
@@ -77,5 +82,35 @@
       <version>2.17.0</version>
     </dependency>
 
+
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.34.0</version>
+    </dependency>
+
+
   </dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <!-- Передаём нужный тег как системное свойство для Cucumber -->
+          <systemPropertyVariables>
+            <cucumber.filter.tags>${parallel.tags}</cucumber.filter.tags>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
 </project>
+
+

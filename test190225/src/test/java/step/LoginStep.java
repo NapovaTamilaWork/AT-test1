@@ -26,6 +26,12 @@ public class LoginStep {
         LoginPage.enterValidPass(Constants.getPassword());
     }
 
+    @When("^user enters invalid username and password$")
+    public void userEntersInvalidUsernameAndPassword() {
+        LoginPage.enterValidName(Constants.getBadUsername());
+        LoginPage.enterValidPass(Constants.getBadPassword());
+    }
+
     @And("^user clicks the login button$")
     public void user_clicks_the_login_button() {
         LoginPage.clickLoginButt();
@@ -64,5 +70,10 @@ public class LoginStep {
     @Then("^user see login form$")
     public void userSeeLoginForm() {
         LoginPage.isDisplayLoginPage();
+    }
+
+    @Then("^user see an error$")
+    public void userSeeAnError() {
+        LoginPage.isDisplayError();
     }
 }

@@ -1,0 +1,2 @@
+Feature: Hide balance
+  Scenario:
