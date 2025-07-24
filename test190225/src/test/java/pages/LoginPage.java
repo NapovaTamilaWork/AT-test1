@@ -35,6 +35,8 @@ public class LoginPage {
         // set the page load timeout to 15 seconds
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+
+        logger.info("Open login page");
     }
 
     public static void enterValidName(String login){
@@ -43,14 +45,14 @@ public class LoginPage {
         fieldLogin.click();
         fieldLogin.sendKeys(login);
 
-        logger.info("enter Valid Name : {}", login);
+        logger.info("enter Name : {}", login);
     }
 
     public static void enterValidPass(String password){
         WebElement fieldLPassword = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-password-input']"));
         fieldLPassword.sendKeys(password);
 
-        logger.info("enter Valid Password : {}", password);
+        logger.info("enter Password : {}", password);
     }
 
     public static void clickLoginButt(){
@@ -64,6 +66,8 @@ public class LoginPage {
         WebElement PageLoadScreen = driver.findElement(By.xpath("//div[@data-at='at-page-loader-container']"));
 
         Assert.assertTrue(PageLoadScreen.isDisplayed());
+
+        logger.info("Check is Display Home Page : {}", PageLoadScreen.isDisplayed());
     }
 
 
@@ -108,6 +112,8 @@ public class LoginPage {
         Error = driver.findElement(By.xpath("//span[@data-at='at-login-block-error']"));
 
         Assert.assertTrue(Error.isDisplayed());
+
+        logger.info("Check is Display Error on Login page : {}", Error.isDisplayed());
     }
 
     public static void login(String login, String password) {
