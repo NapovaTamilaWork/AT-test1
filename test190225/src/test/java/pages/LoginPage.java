@@ -23,7 +23,7 @@ public class LoginPage {
     private static WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        LoginPage.driver = driver;
     }
     // -------------
 

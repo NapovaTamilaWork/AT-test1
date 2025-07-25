@@ -10,10 +10,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.LoginPage;
 
+
 import java.time.Duration;
 
 
 public class LoginStep {
+
+    private WebDriver driver = Hooks.driver;
 
     @Given("^user is opened login page$")
     public void userIsOpenedLoginPage() {

@@ -21,7 +21,7 @@ public class DriverManager {
                     break;
                 case "chrome":
                 default:
-                    System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome137\\chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome138\\chromedriver.exe");
                     driver = new ChromeDriver();
                     break;
             }
