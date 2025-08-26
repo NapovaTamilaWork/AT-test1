@@ -19,7 +19,7 @@ public class Hooks {
     @After
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
+            DriverManager.quitDriver();
             System.out.println("🧹 Браузер закрыт");
         }
     }

@@ -2,7 +2,6 @@ package pages;
 
 import org.example.Constants;
 import org.example.DriverManager;
-import org.example.loginIncomex;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +16,7 @@ import java.time.Duration;
 public class LoginPage {
 
 
-    private static final Logger logger = LoggerFactory.getLogger(loginIncomex.class);      //для логгирования
+    private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);      //для логгирования
 
     //убираем передачу драйвера в каждую функцию
     private static WebDriver driver;
