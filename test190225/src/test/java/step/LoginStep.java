@@ -48,11 +48,13 @@ public class LoginStep {
 
     @Given("^user is login to the platform$")
     public void userIsLoginToThePlatform() {
-        LoginPage.openPlatform();
+        /*LoginPage.openPlatform();
         LoginPage.enterValidName(Constants.getUsername());
         LoginPage.enterValidPass(Constants.getPassword());
         LoginPage.clickLoginButt();
-        LoginPage.isDisplayHomePage();
+        LoginPage.isDisplayHomePage();*/
+
+        LoginPage.login(Constants.getUsername(), Constants.getPassword());
     }
 
     @When("^user click more menu button$")
@@ -79,4 +81,5 @@ public class LoginStep {
     public void userSeeAnError() {
         LoginPage.isDisplayError();
     }
+
 }
