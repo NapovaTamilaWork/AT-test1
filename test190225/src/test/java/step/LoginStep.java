@@ -2,6 +2,7 @@ package step;
 
 import io.cucumber.java.en.*;
 import org.example.Constants;
+import org.example.DriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,33 +17,34 @@ import java.time.Duration;
 
 public class LoginStep {
 
-    private WebDriver driver = Hooks.driver;
+    WebDriver driver = DriverManager.getDriver();
+    LoginPage loginPage = new LoginPage(driver);
 
     @Given("^user is opened login page$")
     public void userIsOpenedLoginPage() {
-        LoginPage.openPlatform();
+        loginPage.openPlatform();
     }
 
     @When("^user enters valid username and password$")
     public void user_enters_valid_username_and_password() {
-        LoginPage.enterValidName(Constants.getUsername());
-        LoginPage.enterValidPass(Constants.getPassword());
+        loginPage.enterValidName(Constants.getUsername());
+        loginPage.enterValidPass(Constants.getPassword());
     }
 
     @When("^user enters invalid username and password$")
     public void userEntersInvalidUsernameAndPassword() {
-        LoginPage.enterValidName(Constants.getBadUsername());
-        LoginPage.enterValidPass(Constants.getBadPassword());
+        loginPage.enterValidName(Constants.getBadUsername());
+        loginPage.enterValidPass(Constants.getBadPassword());
     }
 
     @And("^user clicks the login button$")
     public void user_clicks_the_login_button() {
-        LoginPage.clickLoginButt();
+        loginPage.clickLoginButt();
     }
 
     @Then("^user should be redirected to the homepage$")
     public void user_should_be_redirected_to_the_homepage() {
-        LoginPage.isDisplayHomePage();
+        loginPage.isDisplayHomePage();
     }
 
 
@@ -54,32 +56,32 @@ public class LoginStep {
         LoginPage.clickLoginButt();
         LoginPage.isDisplayHomePage();*/
 
-        LoginPage.login(Constants.getUsername(), Constants.getPassword());
+        loginPage.login(Constants.getUsername(), Constants.getPassword());
     }
 
     @When("^user click more menu button$")
     public void userClickMoreMenuButton() {
-        LoginPage.clickMoreMenuButt();
+        loginPage.clickMoreMenuButt();
     }
 
     @And("^user click logout item$")
     public void userClickLogoutItem() {
-        LoginPage.clickLogoutItem();
+        loginPage.clickLogoutItem();
     }
 
     @And("^user click Yes button$")
     public void userClickYesButton() {
-        LoginPage.clickYesOnLogoutWindow();
+        loginPage.clickYesOnLogoutWindow();
     }
 
     @Then("^user see login form$")
     public void userSeeLoginForm() {
-        LoginPage.isDisplayLoginPage();
+        loginPage.isDisplayLoginPage();
     }
 
     @Then("^user see an error$")
     public void userSeeAnError() {
-        LoginPage.isDisplayError();
+        loginPage.isDisplayError();
     }
 
 }

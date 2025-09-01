@@ -19,15 +19,16 @@ public class LoginPage {
     private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);      //для логгирования
 
     //убираем передачу драйвера в каждую функцию
-    private static WebDriver driver;
+    private final WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        LoginPage.driver = driver;
+        //LoginPage.driver = driver;
+        this.driver = driver;
     }
     // -------------
 
-    public static void openPlatform(){
-        new LoginPage(DriverManager.getDriver());
+    public void openPlatform(){
+
         driver.get(Constants.getUrl());
         driver.manage().window().maximize();    //окно на весь єкран
 
@@ -38,7 +39,7 @@ public class LoginPage {
         logger.info("Open login page");
     }
 
-    public static void enterValidName(String login){
+    public void enterValidName(String login){
         WebElement fieldLogin = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-login-input']"));
 
         fieldLogin.click();
@@ -47,21 +48,21 @@ public class LoginPage {
         logger.info("enter Name : {}", login);
     }
 
-    public static void enterValidPass(String password){
+    public void enterValidPass(String password){
         WebElement fieldLPassword = driver.findElement(By.xpath("//input[@data-at='at-login-window-block-password-input']"));
         fieldLPassword.sendKeys(password);
 
         logger.info("enter Password : {}", password);
     }
 
-    public static void clickLoginButt(){
+    public void clickLoginButt(){
         WebElement loginButton = driver.findElement(By.xpath("//button[@data-at='at-login-block-login-button']"));
         loginButton.click();
 
         logger.info("click Login Button");
     }
 
-    public static void isDisplayHomePage(){
+    public void isDisplayHomePage(){
         WebElement PageLoadScreen = driver.findElement(By.xpath("//div[@data-at='at-page-loader-container']"));
 
         Assert.assertTrue(PageLoadScreen.isDisplayed());
@@ -70,7 +71,7 @@ public class LoginPage {
     }
 
 
-    public static void clickMoreMenuButt(){
+    public void clickMoreMenuButt(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Ждём, пока загрузочный экран исчезнет
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-at='at-page-loader-container']")));
@@ -82,14 +83,14 @@ public class LoginPage {
         logger.info("click More Menu Button");
     }
 
-    public static void clickLogoutItem(){
+    public void clickLogoutItem(){
         WebElement logout = driver.findElement(By.xpath("//div[@data-at='at-header-balance-menu-item-label-logout']"));
         logout.click();
 
         logger.info("click Logout Item Button");
     }
 
-    public static void clickYesOnLogoutWindow(){
+    public void clickYesOnLogoutWindow(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Ждём, пока загрузочный экран исчезнет
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-at='at-page-loader-container']")));
@@ -100,13 +101,13 @@ public class LoginPage {
         logger.info("click Yes Button On Logout Window");
     }
 
-    public static void isDisplayLoginPage(){
+    public void isDisplayLoginPage(){
         WebElement PageLogin = driver.findElement(By.xpath("//div[@class='LoginPagestyled__Container-sc-hfjn82-0 brIiuV']"));
 
         Assert.assertTrue(PageLogin.isDisplayed());
     }
 
-    public static void isDisplayError() {
+    public void isDisplayError() {
         WebElement Error;
         Error = driver.findElement(By.xpath("//span[@data-at='at-login-block-error']"));
 
@@ -115,7 +116,7 @@ public class LoginPage {
         logger.info("Check is Display Error on Login page : {}", Error.isDisplayed());
     }
 
-    public static void login(String login, String password) {
+    public void login(String login, String password) {
 
         openPlatform();
 
@@ -130,7 +131,7 @@ public class LoginPage {
         isDisplayHomePage();
     }
 
-    public static void logout(){
+    public void logout(){
 
         clickMoreMenuButt();
 
