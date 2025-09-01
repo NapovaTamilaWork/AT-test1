@@ -15,7 +15,7 @@
 
     <parallel.tags>
       <!--@Hide_balance -->
-      @brands
+      @SSO
       <!-- @positive -->
     </parallel.tags>
   </properties>

@@ -1,12 +1,15 @@
-Feature: Measure login button time
+Feature: SSO login for brands
 
-  @brands
-  Scenario Outline: Measure login button and authorization time for <brand>
-    Given user opens "<brand>" platform
-    When user waits until login button is active
-    And user enters username "<username>" and password "<password>"
-    And user clicks login button and waits for home page
-    Then log brand and timings
+  @SSO
+  Scenario Outline: Authorize via SSO and measure timings for <brand>
+    Given brand "<brand>" config is loaded
+    When user opens account page
+    Then measure time until SSO login button is clickable
+    When user enters username "<username>" and password "<password>" on MyAcc
+    And user clicks SSO login button
+    And user clicks first "Log In" button on redirected page
+    Then measure time until home page is fully loaded
+    And log timings and result
 
     Examples:
       | brand            | username | password |
@@ -58,4 +61,3 @@ Feature: Measure login button time
       | https://light-trading.worldtradex.io | demo_all@i.ua | Dev123123! |
       | https://light-trading.xcindia.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.xcritical.info | demo_all@i.ua | Dev123123 |
-
