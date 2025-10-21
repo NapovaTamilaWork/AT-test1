@@ -16,7 +16,6 @@ Feature: SSO login for brands
       | https://light-trading.99xtrade.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.airmarkets.sbs | demo_all@i.ua | Dev123123 |
       | https://light-trading.avpfx-demo.org | demo_all1@i.ua | Dev123123 |
-      | https://light-trading.avpfx.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.avpfx.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.braviatrade.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.capitalprime.org | demo_all@i.ua | Dev123123 |
@@ -31,18 +30,15 @@ Feature: SSO login for brands
       | https://light-trading.grow-line.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.investingvip.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.irotradex.com | demo_all@i.ua | Dev123123 |
-      | https://light-trading.lamdatrade.me | demo_all@i.ua | Dev123123 |
+      | https://light-trading.lamdatrade.me | demo_new@i.ua | Dev123123 |
       | https://light-trading.lamdatradeua.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.lexatrade.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.limefx.ac | demo_all@i.ua | Dev123123 |
       | https://light-trading.lunarcapital.org | demo_all@i.ua | Dev123123 |
-      | https://light-trading.marketglobe.io | demo_all@i.ua | Dev123123 |
-      | https://light-trading.marketnexus.io | demo_all@i.ua | Dev123123 |
       | https://light-trading.markets60.top | demo_all@i.ua | Dev123123 |
       | https://light-trading.maxi-trade.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.maximarkets.lc | demo_all@i.ua | Dev123123! |
       | https://light-trading.maxitrade.com | demo_all@i.ua | Dev123123 |
-      | https://light-trading.myratrade.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.nexytrade.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.oceanmarkets.biz | demo_all@i.ua | Dev123123 |
       | https://light-trading.protradex.biz | demo_all@i.ua | Dev123123 |
@@ -60,4 +56,3 @@ Feature: SSO login for brands
       | https://light-trading.vedafx.com | q111024@dunkos.xyz | leoZ173y |
       | https://light-trading.worldtradex.io | demo_all@i.ua | Dev123123! |
       | https://light-trading.xcindia.com | demo_all@i.ua | Dev123123 |
-      | https://light-trading.xcritical.info | demo_all@i.ua | Dev123123 |

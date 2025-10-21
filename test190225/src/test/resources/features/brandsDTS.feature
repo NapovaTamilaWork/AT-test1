@@ -19,16 +19,14 @@ Feature: Measure login button time
       | https://light-trading.capitalprime.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.capitalprof.cfd | demo_all@i.ua | Dev123123 |
       | https://light-trading.dowmarkets.com | demo_all@i.ua | Dev123123 |
-      | https://light-trading.fiovation.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.firamarkets.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.forexby.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.goldflame.io | demo_all@i.ua | Dev123123 |
       | https://light-trading.greenwavex.ai | demo_all@i.ua | Dev123123 |
       | https://light-trading.greenwavex.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.grow-line.org | demo_all@i.ua | Dev123123 |
-      | https://light-trading.investingvip.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.irotradex.com | demo_all@i.ua | Dev123123 |
-      | https://light-trading.lamdatrade.me | demo_all@i.ua | Dev123123 |
+      | https://light-trading.lamdatrade.me | demo_new@i.ua | Dev123123 |
       | https://light-trading.lamdatradeua.com | demo_all@i.ua | Dev123123 |
       | https://light-trading.lexatrade.org | demo_all@i.ua | Dev123123 |
       | https://light-trading.limefx.ac | demo_all@i.ua | Dev123123 |

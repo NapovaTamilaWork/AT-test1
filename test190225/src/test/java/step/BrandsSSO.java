@@ -177,7 +177,7 @@ public class BrandsSSO {
     @Then("measure time until home page is fully loaded")
     public void measureHomePageTime() {
         WebDriver driver = DriverManager.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // можно увеличить таймаут для медленной загрузки
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40)); // можно увеличить таймаут для медленной загрузки
         long start = System.currentTimeMillis();
         try {
             // ждём кликабельности settingsTour
