@@ -1,27 +1,20 @@
 package org.example;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.*;
-import java.util.concurrent.TimeUnit;
 
-import static org.example.loginIncomex.login;
-import static org.example.HideBalance.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.util.*;
 
 
 public class App 
 {
     public static void main( String[] args ) {
-        System.setProperty("webdriver.chrome.driver", "D:\\WORK\\AT\\WebDriver\\chrome133\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
 
-        System.out.println(login(driver, "q29125@dunkos.xyz", "Password123"));
-
-        System.out.println(ButtonIsDisplayed(driver));
-
-        System.out.println(ClickButtonEye(driver));
 
     }
 }

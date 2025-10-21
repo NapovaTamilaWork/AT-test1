@@ -1,5 +1,6 @@
-package org.example;
+package pages;
 
+import org.example.loginIncomex;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,25 +9,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import java.time.Instant;
 
-public class HideBalance {
+public class Balance {
+    private static final Logger logger = LoggerFactory.getLogger(Balance.class);
 
-    private static final Logger logger = LoggerFactory.getLogger(loginIncomex.class);      //для логгирования
+    //проверка на класс
+    public static String ButtonEyeState="";
+    public static final String ShowBalanceState = "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 lfNOdk";
+    public static final String HideBalanceState = "BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dPMvMO";
 
-    public static boolean ButtonIsDisplayed(WebDriver driver){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    //убираем передачу драйвера в каждую функцию
+    private static WebDriver driver;
 
-        WebElement ButtonEye = driver.findElement(By.xpath("//div[@data-at='at-header-balance-icon']"));
-
-        logger.info("Button Is Displayed : {}", ButtonEye.isDisplayed());
-
-        return ButtonEye.isDisplayed();
+    public Balance(WebDriver driver) {
+        Balance.driver = driver;
     }
 
-    public static boolean ButtonEyeState(WebDriver driver, String duringClass){
+    public static void ButtonEyeState() {
         //проверка на класс
         //  BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 kNwKE      - not pressed
         //  BalanceMenustyled__BalanceIcon-sc-xj2ypv-4 dYPBdJ      - pressed
@@ -35,17 +36,22 @@ public class HideBalance {
         // Дожидаемся, пока кнопка станет кликабельной
         WebElement ButtonEye = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-at='at-header-balance-icon']")));
 
-        logger.info("Button Eye State : {}", duringClass);
+        ButtonEyeState = ButtonEye.getAttribute("class");
 
-        return ButtonEye.getAttribute("class").equals(duringClass);
+        logger.info("Button Eye State : {}", ButtonEyeState);
 
     }
 
-    public static boolean ClickButtonEye(WebDriver driver) {
+    public static boolean CheckButtonEyeState(String state) {
+        if (state.equals("hide")) {
+            return ButtonEyeState.equals(HideBalanceState);
+        } else if (state.equals("show")) {
+            return ButtonEyeState.equals(ShowBalanceState);
+        }
+        return false;
+    }
 
-        String expRes = "$*********";
-        String actRes = "";
-
+    public static void ClickButtonEye() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Ждём, пока загрузочный экран исчезнет
@@ -56,11 +62,16 @@ public class HideBalance {
 
         ButtonEye.click();
 
+        logger.info("Click Button Eye");
+    }
+
+    public static boolean HideBalanceState() {
+        String expRes = "$*********";
+        String actRes = "";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Дожидаемся появления баланса
         WebElement Balance = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-at='at-header-balance-value']")));
         actRes = Balance.getText();
-
-        logger.info("Click Button Eye");
 
         return expRes.equals(actRes);
     }
